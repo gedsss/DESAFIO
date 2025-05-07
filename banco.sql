@@ -3,9 +3,9 @@ CREATE DATABASE IF NOT EXISTS livraria;
 USE livraria;
 
 CREATE TABLE IF NOT EXISTS livros (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
     autor VARCHAR(255) NOT NULL,
-    ano_publicacao INT NOT NULL,
+    ano_publicacao INT NULL,
     preco FLOAT NOT NULL
 );
