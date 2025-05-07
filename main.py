@@ -14,14 +14,23 @@ def menu():
 
     while True:
         exibir_menu()
-        escolha = int(input("Escolha uma das opções: "))
+        escolha = int(input("Escolha uma das opções:"))
+        print("\n")
 
         if escolha == 1:
             titulo = input("Digite o título do livro: ")
             autor = input("Digite o autor do livro: ")
-            ano_publicacao = int(input("Digite o ano de publicação: "))
-            preco = float(input("Digite o preço do livro: "))
-            inserir(cursor, conexao, titulo, autor, ano_publicacao, preco)
+            confirmacao = int(input("Deseja digitar o ano de publicação? se sim digite 1, se não digite 2: "))
+            if confirmacao == 1:
+                ano_publicacao = int(input("Digite o ano de publicação: "))
+                preco = float(input("Digite o preço do livro: "))
+                inserir(cursor, conexao, titulo, autor, ano_publicacao, preco)
+            elif confirmacao == 2:
+                ano_publicacao = None
+                preco = float(input("Digite o preço do livro: "))
+                inserir(cursor, conexao, titulo, autor, ano_publicacao, preco)
+            else:
+                print("Operação inválida")
 
         elif escolha == 2:
             livros = ler(cursor)
