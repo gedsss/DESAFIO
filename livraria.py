@@ -3,14 +3,14 @@ import mysql.connector
 def conectar():
     return mysql.connector.connect(
         host='localhost',
-        user='Seu user',
-        password='Sua senha',
+        user='root',
+        password='22Ed22ed22ed@',
         database='livraria'
     )
 
 def inserir(cursor, conexao, titulo, autor, ano_publicacao, preco):
     comando = '''INSERT INTO livros (titulo, autor, ano_publicacao, preco) VALUES (%s, %s, %s, %s)'''
-    dados = (titulo, autor, ano_publicacao, preco)
+    dados = (titulo, autor, ano_publicacao if ano_publicacao else None, preco)
     cursor.execute(comando, dados)
     conexao.commit()
 
